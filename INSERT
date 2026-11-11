@@ -1,0 +1,69 @@
+INSERT INTO unidades_senai VALUES
+(1, 'SENAI Curitiba', 'Curitiba'),
+(2, 'SENAI Sao Paulo', 'Sao Paulo'),
+(3, 'SENAI Campinas', 'Campinas'),
+(4, 'SENAI Joinville', 'Joinville'),
+(5, 'SENAI Londrina', 'Londrina');
+
+INSERT INTO linhas_producao VALUES
+(1, 1, 'Montagem Industrial'),
+(2, 2, 'Usinagem'),
+(3, 3, 'Pintura'),
+(4, 4, 'Embalagem'),
+(5, 5, 'Controle de Qualidade');
+
+INSERT INTO tipos_maquina VALUES
+(1, 'Torno CNC', 500),
+(2, 'Esteira Transportadora', 300),
+(3, 'Prensa Hidraulica', 400),
+(4, 'Robo Industrial', 600),
+(5, 'Compressor', 250);
+
+INSERT INTO maquinas_senai VALUES
+(1, 1, 1, 'PAT-0001', '2022-03-15', 'ATIVA'),
+(2, 2, 2, 'PAT-0002', '2021-07-20', 'MANUTENCAO'),
+(3, 3, 3, 'PAT-0003', '2023-01-10', 'ATIVA'),
+(4, 4, 4, 'PAT-0004', '2020-11-05', 'ATIVA'),
+(5, 5, 5, 'PAT-0005', '2024-02-18', 'DESATIVADA');
+
+INSERT INTO componentes_maq VALUES
+(1, 1, 'Motor principal', 320, 500),
+(2, 2, 'Correia transportadora', 280, 300),
+(3, 3, 'Sistema hidraulico', 150, 400),
+(4, 4, 'Braco robotico', 450, 600),
+(5, 5, 'Filtro de ar', 200, 250);
+
+INSERT INTO tecnicos VALUES
+(1, 'Carlos Oliveira', 'Mecanica', 'SENIOR'),
+(2, 'Mariana Santos', 'Eletrica', 'PLENO'),
+(3, 'Joao Pereira', 'Automacao', 'SPECIALIST'),
+(4, 'Ana Costa', 'Hidraulica', 'JUNIOR'),
+(5, 'Pedro Almeida', 'Mecanica Industrial', 'PLENO');
+
+INSERT INTO ordens_servico VALUES
+(1, 1, 1, '2026-10-01 08:00:00', 'PREVENTIVA', 'CONCLUIDA'),
+(2, 2, 2, '2026-10-03 09:30:00', 'CORRETIVA', 'EM_ANDAMENTO'),
+(3, 3, 3, '2026-10-05 10:15:00', 'PREDITIVA', 'ABERTA'),
+(4, 4, 4, '2026-10-07 13:00:00', 'PREVENTIVA', 'CONCLUIDA'),
+(5, 5, 5, '2026-10-09 14:45:00', 'CORRETIVA', 'CANCELADA');
+
+INSERT INTO estoque_pecas VALUES
+(1, 'MOT-100', 'Motor eletrico', 10, 850.00),
+(2, 'COR-200', 'Correia industrial', 25, 120.50),
+(3, 'FIL-300', 'Filtro de ar', 40, 35.90),
+(4, 'SEN-400', 'Sensor de temperatura', 15, 210.00),
+(5, 'ROL-500', 'Rolamento industrial', 30, 78.75);
+
+INSERT INTO pecas_os VALUES
+(1, 1, 1, 850.00),
+(2, 2, 2, 120.50),
+(3, 4, 1, 210.00),
+(4, 5, 2, 78.75),
+(5, 3, 1, 35.90);
+
+INSERT INTO historico_sensores VALUES
+(1, 1, 65.50, 2.30, '2026-10-01 08:30:00', 'GERADO_POR_LLM'),
+(2, 2, 82.10, 4.75, '2026-10-03 10:00:00', 'GERADO_POR_LLM'),
+(3, 3, 70.25, 3.10, '2026-10-05 10:45:00', 'GERADO_POR_LLM'),
+(4, 4, 58.90, 1.85, '2026-10-07 13:30:00', 'GERADO_POR_LLM'),
+(5, 5, 91.40, 5.20, '2026-10-09 15:00:00', 'GERADO_POR_LLM');
