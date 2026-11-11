@@ -35,17 +35,6 @@ CREATE TABLE `componentes_maq` (
   `limite_horas_alerta` int NOT NULL
 ) ;
 
---
--- Despejando dados para a tabela `componentes_maq`
---
-
-INSERT INTO `componentes_maq` (`id_componente`, `id_maquina`, `nome_componente`, `horas_uso_acumulado`, `limite_horas_alerta`) VALUES
-(1, 1, 'Motor principal', 320, 500),
-(2, 2, 'Correia transportadora', 280, 300),
-(3, 3, 'Sistema hidraulico', 150, 400),
-(4, 4, 'Braco robotico', 450, 600),
-(5, 5, 'Filtro de ar', 200, 250);
-
 -- --------------------------------------------------------
 
 --
@@ -59,17 +48,6 @@ CREATE TABLE `estoque_pecas` (
   `qtd_estoque` int NOT NULL,
   `preco_unitario` decimal(10,2) NOT NULL
 ) ;
-
---
--- Despejando dados para a tabela `estoque_pecas`
---
-
-INSERT INTO `estoque_pecas` (`id_peca`, `codigo_part_number`, `descricao`, `qtd_estoque`, `preco_unitario`) VALUES
-(1, 'MOT-100', 'Motor eletrico', 10, 850.00),
-(2, 'COR-200', 'Correia industrial', 25, 120.50),
-(3, 'FIL-300', 'Filtro de ar', 40, 35.90),
-(4, 'SEN-400', 'Sensor de temperatura', 15, 210.00),
-(5, 'ROL-500', 'Rolamento industrial', 30, 78.75);
 
 -- --------------------------------------------------------
 
@@ -86,17 +64,6 @@ CREATE TABLE `historico_sensores` (
   `prompt_geracao_ia` varchar(100) DEFAULT 'GERADO_POR_LLM'
 ) ;
 
---
--- Despejando dados para a tabela `historico_sensores`
---
-
-INSERT INTO `historico_sensores` (`id_leitura`, `id_ordem`, `temperatura_medida`, `vibracao_mm_s`, `data_hora_leitura`, `prompt_geracao_ia`) VALUES
-(1, 1, 65.50, 2.30, '2026-10-01 08:30:00', 'GERADO_POR_LLM'),
-(2, 2, 82.10, 4.75, '2026-10-03 10:00:00', 'GERADO_POR_LLM'),
-(3, 3, 70.25, 3.10, '2026-10-05 10:45:00', 'GERADO_POR_LLM'),
-(4, 4, 58.90, 1.85, '2026-10-07 13:30:00', 'GERADO_POR_LLM'),
-(5, 5, 91.40, 5.20, '2026-10-09 15:00:00', 'GERADO_POR_LLM');
-
 -- --------------------------------------------------------
 
 --
@@ -108,17 +75,6 @@ CREATE TABLE `linhas_producao` (
   `id_unidade` int NOT NULL,
   `nome_linha` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Despejando dados para a tabela `linhas_producao`
---
-
-INSERT INTO `linhas_producao` (`id_linha`, `id_unidade`, `nome_linha`) VALUES
-(1, 1, 'Montagem Industrial'),
-(2, 2, 'Usinagem'),
-(3, 3, 'Pintura'),
-(4, 4, 'Embalagem'),
-(5, 5, 'Controle de Qualidade');
 
 -- --------------------------------------------------------
 
@@ -135,17 +91,6 @@ CREATE TABLE `maquinas_senai` (
   `status_operacao` varchar(20) NOT NULL
 ) ;
 
---
--- Despejando dados para a tabela `maquinas_senai`
---
-
-INSERT INTO `maquinas_senai` (`id_maquina`, `id_linha`, `id_tipo`, `tag_patrimonio`, `data_aquisicao`, `status_operacao`) VALUES
-(1, 1, 1, 'PAT-0001', '2022-03-15', 'ATIVA'),
-(2, 2, 2, 'PAT-0002', '2021-07-20', 'MANUTENCAO'),
-(3, 3, 3, 'PAT-0003', '2023-01-10', 'ATIVA'),
-(4, 4, 4, 'PAT-0004', '2020-11-05', 'ATIVA'),
-(5, 5, 5, 'PAT-0005', '2024-02-18', 'DESATIVADA');
-
 -- --------------------------------------------------------
 
 --
@@ -161,17 +106,6 @@ CREATE TABLE `ordens_servico` (
   `status_os` varchar(20) NOT NULL
 ) ;
 
---
--- Despejando dados para a tabela `ordens_servico`
---
-
-INSERT INTO `ordens_servico` (`id_ordem`, `id_maquina`, `id_tecnico`, `data_abertura`, `tipo_manutencao`, `status_os`) VALUES
-(1, 1, 1, '2026-10-01 08:00:00', 'PREVENTIVA', 'CONCLUIDA'),
-(2, 2, 2, '2026-10-03 09:30:00', 'CORRETIVA', 'EM_ANDAMENTO'),
-(3, 3, 3, '2026-10-05 10:15:00', 'PREDITIVA', 'ABERTA'),
-(4, 4, 4, '2026-10-07 13:00:00', 'PREVENTIVA', 'CONCLUIDA'),
-(5, 5, 5, '2026-10-09 14:45:00', 'CORRETIVA', 'CANCELADA');
-
 -- --------------------------------------------------------
 
 --
@@ -184,17 +118,6 @@ CREATE TABLE `pecas_os` (
   `qtd_utilizada` int NOT NULL,
   `preco_aplicado` decimal(10,2) NOT NULL
 ) ;
-
---
--- Despejando dados para a tabela `pecas_os`
---
-
-INSERT INTO `pecas_os` (`id_ordem`, `id_peca`, `qtd_utilizada`, `preco_aplicado`) VALUES
-(1, 1, 1, 850.00),
-(2, 2, 2, 120.50),
-(3, 4, 1, 210.00),
-(4, 5, 2, 78.75),
-(5, 3, 1, 35.90);
 
 -- --------------------------------------------------------
 
@@ -209,17 +132,6 @@ CREATE TABLE `tecnicos` (
   `nivel_certificacao` varchar(30) NOT NULL
 ) ;
 
---
--- Despejando dados para a tabela `tecnicos`
---
-
-INSERT INTO `tecnicos` (`id_tecnico`, `nome_tecnico`, `especialidade`, `nivel_certificacao`) VALUES
-(1, 'Carlos Oliveira', 'Mecanica', 'SENIOR'),
-(2, 'Mariana Santos', 'Eletrica', 'PLENO'),
-(3, 'Joao Pereira', 'Automacao', 'SPECIALIST'),
-(4, 'Ana Costa', 'Hidraulica', 'JUNIOR'),
-(5, 'Pedro Almeida', 'Mecanica Industrial', 'PLENO');
-
 -- --------------------------------------------------------
 
 --
@@ -232,17 +144,6 @@ CREATE TABLE `tipos_maquina` (
   `horas_revisao_padrao` int NOT NULL
 ) ;
 
---
--- Despejando dados para a tabela `tipos_maquina`
---
-
-INSERT INTO `tipos_maquina` (`id_tipo`, `nome_tipo`, `horas_revisao_padrao`) VALUES
-(1, 'Torno CNC', 500),
-(2, 'Esteira Transportadora', 300),
-(3, 'Prensa Hidraulica', 400),
-(4, 'Robo Industrial', 600),
-(5, 'Compressor', 250);
-
 -- --------------------------------------------------------
 
 --
@@ -254,17 +155,6 @@ CREATE TABLE `unidades_senai` (
   `nome_unidade` varchar(100) NOT NULL,
   `cidade` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
---
--- Despejando dados para a tabela `unidades_senai`
---
-
-INSERT INTO `unidades_senai` (`id_unidade`, `nome_unidade`, `cidade`) VALUES
-(1, 'SENAI Curitiba', 'Curitiba'),
-(2, 'SENAI Sao Paulo', 'Sao Paulo'),
-(3, 'SENAI Campinas', 'Campinas'),
-(4, 'SENAI Joinville', 'Joinville'),
-(5, 'SENAI Londrina', 'Londrina');
 
 --
 -- Índices para tabelas despejadas
